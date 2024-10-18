@@ -392,7 +392,8 @@
         </Container>
         <Component class="javax.swing.JRadioButton" name="jRadioButton1">
           <Properties>
-            <Property name="text" type="java.lang.String" value="jRadioButton1"/>
+            <Property name="selected" type="boolean" value="true"/>
+            <Property name="text" type="java.lang.String" value="P4 3.0 Gb"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JRadioButton" name="jRadioButton2">

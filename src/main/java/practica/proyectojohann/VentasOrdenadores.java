@@ -127,7 +127,8 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         jList1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
         jScrollPane1.setViewportView(jList1);
 
-        jRadioButton1.setText("jRadioButton1");
+        jRadioButton1.setSelected(true);
+        jRadioButton1.setText("P4 3.0 Gb");
 
         jRadioButton2.setText("jRadioButton2");
 
