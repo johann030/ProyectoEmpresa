@@ -49,6 +49,10 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         escribirNombre = new java.awt.TextField();
         jScrollPane1 = new javax.swing.JScrollPane();
         jList1 = new javax.swing.JList<>();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jRadioButton4 = new javax.swing.JRadioButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -123,6 +127,14 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         jList1.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
         jScrollPane1.setViewportView(jList1);
 
+        jRadioButton1.setText("jRadioButton1");
+
+        jRadioButton2.setText("jRadioButton2");
+
+        jRadioButton3.setText("jRadioButton3");
+
+        jRadioButton4.setText("jRadioButton4");
+
         Fondo.setLayer(nombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(localidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(clientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -139,6 +151,10 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Fondo.setLayer(opciones, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(escribirNombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Fondo.setLayer(jRadioButton1, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Fondo.setLayer(jRadioButton2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Fondo.setLayer(jRadioButton3, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Fondo.setLayer(jRadioButton4, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
         Fondo.setLayout(FondoLayout);
@@ -182,15 +198,21 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                         .addGap(75, 75, 75))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
                         .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(88, 88, 88))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
+                        .addComponent(jRadioButton1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(disco)
+                        .addGap(50, 50, 50)
+                        .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(81, 81, 81))
+                    .addGroup(FondoLayout.createSequentialGroup()
                         .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                                .addComponent(disco)
-                                .addGap(50, 50, 50)
-                                .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(81, 81, 81))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(88, 88, 88))))))
+                            .addComponent(jRadioButton4)
+                            .addComponent(jRadioButton3)
+                            .addComponent(jRadioButton2))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         FondoLayout.setVerticalGroup(
             FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -213,7 +235,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                     .addGroup(FondoLayout.createSequentialGroup()
                         .addContainerGap()
                         .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoLayout.createSequentialGroup()
                         .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -221,12 +242,18 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                             .addComponent(memoria)
                             .addComponent(monitor))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 49, Short.MAX_VALUE)
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 78, Short.MAX_VALUE)
                         .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(disco)
-                            .addComponent(opciones))
-                        .addGap(137, 137, 137)))
+                            .addComponent(opciones)
+                            .addComponent(jRadioButton1))))
+                .addComponent(jRadioButton2)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton3)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jRadioButton4)
+                .addGap(35, 35, 35)
                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -310,6 +337,10 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JList<String> jList1;
+    private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel localidad;
     private javax.swing.JLabel memoria;
