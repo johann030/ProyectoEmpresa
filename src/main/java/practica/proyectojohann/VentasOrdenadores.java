@@ -69,6 +69,8 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Opcion3 = new javax.swing.JCheckBox();
         Opcion4 = new javax.swing.JCheckBox();
         Opcion2 = new javax.swing.JCheckBox();
+        MostrarVentas = new javax.swing.JButton();
+        GuardarVentas = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -84,15 +86,15 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
         nombre.setBackground(new java.awt.Color(204, 204, 204));
-        nombre.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        nombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         nombre.setText("Nombre del cliente");
 
         localidad.setBackground(new java.awt.Color(204, 204, 204));
-        localidad.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        localidad.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         localidad.setText("Localidad");
 
         clientes.setBackground(new java.awt.Color(204, 204, 204));
-        clientes.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        clientes.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         clientes.setText("Lista de clientes");
 
         cancelar.setText("Cancelar");
@@ -203,6 +205,17 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
         Opcion2.setText("Wifi");
 
+        MostrarVentas.setText("Mostrar ventas");
+        MostrarVentas.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
+        MostrarVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                MostrarVentasActionPerformed(evt);
+            }
+        });
+
+        GuardarVentas.setText("Guardar ventas");
+        GuardarVentas.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
+
         Fondo.setLayer(nombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(localidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(clientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -239,192 +252,182 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Fondo.setLayer(Opcion3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(Opcion4, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(Opcion2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Fondo.setLayer(MostrarVentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Fondo.setLayer(GuardarVentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
         Fondo.setLayout(FondoLayout);
         FondoLayout.setHorizontalGroup(
             FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FondoLayout.createSequentialGroup()
+                .addGap(20, 20, 20)
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addComponent(procesador)
+                        .addGap(70, 70, 70)
+                        .addComponent(memoria)
+                        .addGap(86, 86, 86)
+                        .addComponent(monitor)
+                        .addGap(84, 84, 84)
+                        .addComponent(disco)
+                        .addGap(69, 69, 69)
+                        .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(FondoLayout.createSequentialGroup()
                         .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(Procesador1)
-                            .addComponent(Procesador4)
-                            .addComponent(Procesador3)
-                            .addComponent(Procesador2))
+                            .addComponent(nombre)
+                            .addComponent(localidad))
                         .addGap(18, 18, 18)
                         .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                                .addComponent(Memoria1)
-                                .addGap(8, 8, 8))
-                            .addComponent(Memoria4)
-                            .addComponent(Memoria3)
-                            .addComponent(Memoria2))
-                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                                .addComponent(Monitor1)
-                                .addGap(8, 8, 8))
-                            .addComponent(Monitor4)
-                            .addComponent(Monitor3)
-                            .addComponent(Monitor2))
-                        .addGap(32, 32, 32)
-                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                                .addComponent(Disco1)
-                                .addGap(8, 8, 8))
-                            .addComponent(Disco4)
-                            .addComponent(Disco3)
-                            .addComponent(Disco2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(escribirNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(161, 161, 161)
+                        .addComponent(clientes)
+                        .addGap(18, 18, 18)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
                         .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(FondoLayout.createSequentialGroup()
-                                .addComponent(Opcion1)
-                                .addContainerGap())
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Procesador1)
+                                    .addComponent(Procesador2)
+                                    .addComponent(Procesador3)
+                                    .addComponent(Procesador4))
+                                .addGap(64, 64, 64)
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Memoria1)
+                                    .addComponent(Memoria2)
+                                    .addComponent(Memoria3)
+                                    .addComponent(Memoria4))
+                                .addGap(76, 76, 76)
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Monitor2)
+                                    .addComponent(Monitor3)
+                                    .addComponent(Monitor4)
+                                    .addComponent(Monitor1))
+                                .addGap(75, 75, 75)
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Disco1)
+                                    .addComponent(Disco2)
+                                    .addComponent(Disco3)
+                                    .addComponent(Disco4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(Opcion4)
-                                    .addComponent(Opcion3)
-                                    .addComponent(Opcion2))
-                                .addGap(48, 48, 48))))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, FondoLayout.createSequentialGroup()
-                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FondoLayout.createSequentialGroup()
-                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addGroup(FondoLayout.createSequentialGroup()
-                                        .addComponent(nombre)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(escribirNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(FondoLayout.createSequentialGroup()
-                                        .addGap(20, 20, 20)
-                                        .addComponent(localidad)
-                                        .addGap(39, 39, 39)
-                                        .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGap(48, 48, 48)
-                                .addComponent(clientes)
-                                .addGap(18, 18, 18)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 133, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(FondoLayout.createSequentialGroup()
-                                .addComponent(procesador)
-                                .addGap(39, 39, 39)
-                                .addComponent(memoria)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(monitor)
-                                .addGap(18, 18, 18)
-                                .addComponent(disco)
-                                .addGap(18, 18, 18)
-                                .addComponent(opciones, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap(111, Short.MAX_VALUE))
-                    .addGroup(FondoLayout.createSequentialGroup()
-                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addGroup(FondoLayout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
-                                .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(FondoLayout.createSequentialGroup()
                                 .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGap(13, 13, 13)
                                 .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(88, 88, 88))))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(GuardarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(MostrarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(69, 69, 69)))
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Opcion1)
+                            .addComponent(Opcion4)
+                            .addComponent(Opcion2)
+                            .addComponent(Opcion3)
+                            .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(16, 16, 16)))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         FondoLayout.setVerticalGroup(
             FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(FondoLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(clientes)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 95, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(FondoLayout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FondoLayout.createSequentialGroup()
-                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(escribirNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGroup(FondoLayout.createSequentialGroup()
-                                        .addGap(18, 18, 18)
-                                        .addComponent(clientes)))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                    .addComponent(localidad)
-                                    .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(nombre)))
-                    .addGroup(FondoLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(FondoLayout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 59, Short.MAX_VALUE)
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(escribirNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(nombre))
+                        .addGap(23, 23, 23)
                         .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(localidad)
+                            .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(procesador)
                             .addComponent(memoria)
-                            .addComponent(monitor)
-                            .addComponent(disco)
-                            .addComponent(opciones))
-                        .addGap(47, 47, 47)
-                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(FondoLayout.createSequentialGroup()
-                                .addComponent(Procesador1)
-                                .addGap(0, 0, 0)
-                                .addComponent(Procesador2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Procesador3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Procesador4))
-                            .addGroup(FondoLayout.createSequentialGroup()
-                                .addComponent(Memoria1)
-                                .addGap(0, 0, 0)
-                                .addComponent(Memoria2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Memoria3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Memoria4))
-                            .addGroup(FondoLayout.createSequentialGroup()
-                                .addComponent(Monitor1)
-                                .addGap(0, 0, 0)
-                                .addComponent(Monitor2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Monitor3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Monitor4))
-                            .addGroup(FondoLayout.createSequentialGroup()
-                                .addComponent(Disco1)
-                                .addGap(0, 0, 0)
-                                .addComponent(Disco2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Disco3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(Disco4)))
-                        .addGap(35, 35, 35)
-                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18))
+                            .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(monitor)
+                                .addComponent(disco)))
+                        .addGap(26, 26, 26))
                     .addGroup(FondoLayout.createSequentialGroup()
-                        .addGap(117, 117, 117)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(opciones)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addComponent(Procesador1)
+                        .addGap(0, 0, 0)
+                        .addComponent(Procesador2)
+                        .addGap(0, 0, 0)
+                        .addComponent(Procesador3)
+                        .addGap(0, 0, 0)
+                        .addComponent(Procesador4))
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addComponent(Memoria1)
+                        .addGap(0, 0, 0)
+                        .addComponent(Memoria2)
+                        .addGap(0, 0, 0)
+                        .addComponent(Memoria3)
+                        .addGap(0, 0, 0)
+                        .addComponent(Memoria4))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
                         .addComponent(Opcion1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addComponent(Opcion2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(0, 0, 0)
                         .addComponent(Opcion3)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(Opcion4)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)))
+                        .addGap(0, 0, 0)
+                        .addComponent(Opcion4))
+                    .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(FondoLayout.createSequentialGroup()
+                            .addComponent(Disco1)
+                            .addGap(0, 0, 0)
+                            .addComponent(Disco2)
+                            .addGap(0, 0, 0)
+                            .addComponent(Disco3)
+                            .addGap(0, 0, 0)
+                            .addComponent(Disco4))
+                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(Monitor1)
+                            .addGroup(FondoLayout.createSequentialGroup()
+                                .addGap(25, 25, 25)
+                                .addComponent(Monitor2)
+                                .addGap(0, 0, 0)
+                                .addComponent(Monitor3)
+                                .addGap(0, 0, 0)
+                                .addComponent(Monitor4)))))
+                .addGap(42, 42, 42)
+                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(MostrarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(GuardarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33))
+                .addGap(31, 31, 31))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Fondo)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(Fondo)
+            .addComponent(Fondo, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -437,6 +440,10 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private void escribirNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribirNombreActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_escribirNombreActionPerformed
+
+    private void MostrarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarVentasActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_MostrarVentasActionPerformed
 
     /**
      * @param args the command line arguments
@@ -480,6 +487,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private javax.swing.JRadioButton Disco4;
     private javax.swing.ButtonGroup DiscoGrupo;
     private javax.swing.JDesktopPane Fondo;
+    private javax.swing.JButton GuardarVentas;
     private javax.swing.JRadioButton Memoria1;
     private javax.swing.JRadioButton Memoria2;
     private javax.swing.JRadioButton Memoria3;
@@ -490,6 +498,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private javax.swing.JRadioButton Monitor3;
     private javax.swing.JRadioButton Monitor4;
     private javax.swing.ButtonGroup MonitorGrupo;
+    private javax.swing.JButton MostrarVentas;
     private javax.swing.JCheckBox Opcion1;
     private javax.swing.JCheckBox Opcion2;
     private javax.swing.JCheckBox Opcion3;
