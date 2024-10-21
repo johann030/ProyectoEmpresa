@@ -140,11 +140,7 @@
                                           <Component id="buscar" min="-2" pref="90" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="13" max="-2" attributes="0"/>
                                           <Component id="eliminar" min="-2" pref="90" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="GuardarVentas" min="-2" pref="90" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                          <Component id="MostrarVentas" min="-2" pref="90" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="69" max="-2" attributes="0"/>
+                                          <EmptySpace min="-2" pref="263" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -258,8 +254,6 @@
                           <Component id="añadir" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="buscar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                           <Component id="eliminar" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="MostrarVentas" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
-                          <Component id="GuardarVentas" alignment="3" min="-2" pref="40" max="-2" attributes="0"/>
                       </Group>
                       <Component id="cancelar" min="-2" pref="40" max="-2" attributes="0"/>
                   </Group>
@@ -330,6 +324,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="salirActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="a&#xf1;adir">
           <Properties>
@@ -357,6 +354,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="buscarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JButton" name="eliminar">
           <Properties>
@@ -369,6 +369,9 @@
               </Border>
             </Property>
           </Properties>
+          <Events>
+            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="eliminarActionPerformed"/>
+          </Events>
         </Component>
         <Component class="javax.swing.JComboBox" name="localidadDesplegable">
           <Properties>
@@ -468,7 +471,6 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="ProcesadorGrupo"/>
             </Property>
-            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="P4 3.0 Gb"/>
           </Properties>
         </Component>
@@ -493,6 +495,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="ProcesadorGrupo"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="AMD 650"/>
           </Properties>
         </Component>
@@ -501,7 +504,6 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="MemoriaGrupo"/>
             </Property>
-            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="128 Mb"/>
           </Properties>
         </Component>
@@ -526,6 +528,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="MemoriaGrupo"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="1024 Mb"/>
           </Properties>
         </Component>
@@ -534,7 +537,6 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="MonitorGrupo"/>
             </Property>
-            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="15&quot;"/>
           </Properties>
         </Component>
@@ -559,6 +561,7 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="MonitorGrupo"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="TFT 17&quot;"/>
           </Properties>
         </Component>
@@ -567,7 +570,6 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="DiscoGrupo"/>
             </Property>
-            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="60 Gb"/>
           </Properties>
         </Component>
@@ -592,54 +594,30 @@
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="DiscoGrupo"/>
             </Property>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="200 Gb"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="Opcion1">
           <Properties>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Grabadora DVD"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="Opcion2">
           <Properties>
+            <Property name="selected" type="boolean" value="true"/>
             <Property name="text" type="java.lang.String" value="Wifi"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="Opcion3">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Sintonizaor TV"/>
+            <Property name="text" type="java.lang.String" value="Sintonizador TV"/>
           </Properties>
         </Component>
         <Component class="javax.swing.JCheckBox" name="Opcion4">
           <Properties>
             <Property name="text" type="java.lang.String" value="Backup Restore"/>
-          </Properties>
-        </Component>
-        <Component class="javax.swing.JButton" name="MostrarVentas">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Mostrar ventas"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder>
-                  <Color PropertyName="shadow" blue="ff" green="cc" red="99" type="rgb"/>
-                </EtchetBorder>
-              </Border>
-            </Property>
-          </Properties>
-          <Events>
-            <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="MostrarVentasActionPerformed"/>
-          </Events>
-        </Component>
-        <Component class="javax.swing.JButton" name="GuardarVentas">
-          <Properties>
-            <Property name="text" type="java.lang.String" value="Guardar ventas"/>
-            <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-              <Border info="org.netbeans.modules.form.compat2.border.EtchedBorderInfo">
-                <EtchetBorder>
-                  <Color PropertyName="shadow" blue="ff" green="cc" red="99" type="rgb"/>
-                </EtchetBorder>
-              </Border>
-            </Property>
           </Properties>
         </Component>
       </SubComponents>

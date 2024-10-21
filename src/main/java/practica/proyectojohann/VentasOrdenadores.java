@@ -17,6 +17,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
      */
     public VentasOrdenadores() {
         initComponents();
+        deshabilitado(false);
     }
 
     /**
@@ -71,8 +72,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Opcion2 = new javax.swing.JCheckBox();
         Opcion3 = new javax.swing.JCheckBox();
         Opcion4 = new javax.swing.JCheckBox();
-        MostrarVentas = new javax.swing.JButton();
-        GuardarVentas = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -109,6 +108,11 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
         salir.setText("Salir");
         salir.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
+        salir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                salirActionPerformed(evt);
+            }
+        });
 
         añadir.setText("Añadir");
         añadir.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
@@ -120,9 +124,19 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
         buscar.setText("Buscar");
         buscar.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
+        buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buscarActionPerformed(evt);
+            }
+        });
 
         eliminar.setText("Eliminar");
         eliminar.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
+        eliminar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                eliminarActionPerformed(evt);
+            }
+        });
 
         localidadDesplegable.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Villalba", "Alpedrete", "Galapagar", "Guadarrama", "Moralzarzal" }));
 
@@ -153,7 +167,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         jScrollPane1.setViewportView(listaClientes);
 
         ProcesadorGrupo.add(Procesador1);
-        Procesador1.setSelected(true);
         Procesador1.setText("P4 3.0 Gb");
 
         ProcesadorGrupo.add(Procesador2);
@@ -163,10 +176,10 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Procesador3.setText("P4 Celeron");
 
         ProcesadorGrupo.add(Procesador4);
+        Procesador4.setSelected(true);
         Procesador4.setText("AMD 650");
 
         MemoriaGrupo.add(Memoria1);
-        Memoria1.setSelected(true);
         Memoria1.setText("128 Mb");
 
         MemoriaGrupo.add(Memoria2);
@@ -176,10 +189,10 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Memoria3.setText("512 Mb");
 
         MemoriaGrupo.add(Memoria4);
+        Memoria4.setSelected(true);
         Memoria4.setText("1024 Mb");
 
         MonitorGrupo.add(Monitor1);
-        Monitor1.setSelected(true);
         Monitor1.setText("15\"");
 
         MonitorGrupo.add(Monitor2);
@@ -189,10 +202,10 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Monitor3.setText("TFT 15\"");
 
         MonitorGrupo.add(Monitor4);
+        Monitor4.setSelected(true);
         Monitor4.setText("TFT 17\"");
 
         DiscoGrupo.add(Disco1);
-        Disco1.setSelected(true);
         Disco1.setText("60 Gb");
 
         DiscoGrupo.add(Disco2);
@@ -202,26 +215,18 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Disco3.setText("120 Gb");
 
         DiscoGrupo.add(Disco4);
+        Disco4.setSelected(true);
         Disco4.setText("200 Gb");
 
+        Opcion1.setSelected(true);
         Opcion1.setText("Grabadora DVD");
 
+        Opcion2.setSelected(true);
         Opcion2.setText("Wifi");
 
-        Opcion3.setText("Sintonizaor TV");
+        Opcion3.setText("Sintonizador TV");
 
         Opcion4.setText("Backup Restore");
-
-        MostrarVentas.setText("Mostrar ventas");
-        MostrarVentas.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
-        MostrarVentas.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                MostrarVentasActionPerformed(evt);
-            }
-        });
-
-        GuardarVentas.setText("Guardar ventas");
-        GuardarVentas.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
 
         Fondo.setLayer(nombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(localidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -259,8 +264,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Fondo.setLayer(Opcion2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(Opcion3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(Opcion4, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Fondo.setLayer(MostrarVentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        Fondo.setLayer(GuardarVentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
         Fondo.setLayout(FondoLayout);
@@ -331,11 +334,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                                         .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(13, 13, 13)
                                         .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(GuardarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(MostrarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(69, 69, 69)))
+                                        .addGap(263, 263, 263)))
                                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Opcion1)
                                     .addComponent(Opcion4)
@@ -422,9 +421,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                     .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(MostrarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(GuardarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -444,32 +441,76 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    private void deshabilitado(Boolean activado){
+        activado = false;
+        this.añadir.setEnabled(activado);
+        this.buscar.setEnabled(activado);
+        this.eliminar.setEnabled(activado);
+        this.localidadDesplegable.setEnabled(activado);
+        this.Disco1.setEnabled(activado);
+        this.Disco2.setEnabled(activado);
+        this.Disco3.setEnabled(activado);
+        this.Disco4.setEnabled(activado);
+        this.Memoria1.setEnabled(activado);
+        this.Memoria2.setEnabled(activado);
+        this.Memoria3.setEnabled(activado);
+        this.Memoria4.setEnabled(activado);
+        this.Monitor1.setEnabled(activado);
+        this.Monitor2.setEnabled(activado);
+        this.Monitor3.setEnabled(activado);
+        this.Monitor4.setEnabled(activado);
+        this.Procesador1.setEnabled(activado);
+        this.Procesador2.setEnabled(activado);
+        this.Procesador3.setEnabled(activado);
+        this.Procesador4.setEnabled(activado);
+        this.Opcion1.setEnabled(activado);
+        this.Opcion2.setEnabled(activado);
+        this.Opcion3.setEnabled(activado);
+        this.Opcion4.setEnabled(activado);
+        
+    }
+    private void comprobarNombre() {
+        if (this.escribirNombre.getText().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "El nombre no puede quedar vacio", "Error nombre vacio", JOptionPane.OK_OPTION);
+        } else if (!this.escribirNombre.getText().matches("[a-zA-Z]{0,15}+")) {
+            JOptionPane.showMessageDialog(this, "Revise el formato, solo letras y maximo 15 caracteres", "Error formato", JOptionPane.OK_OPTION);
+        }
+    }
+    
+    
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
         // TODO add your handling code here:
-        if(this.escribirNombre.getText().isEmpty()){
-            JOptionPane.showMessageDialog(this ,"El nombre no puede quedar vacio" ,"Error nombre vacio", JOptionPane.OK_OPTION);
-        }
-//        else if(this.escribirNombre.getText().matches("\\d[a-z]+")){
-//            JOptionPane.showMessageDialog(this, "No puede contener numeros","Error nombre letras", JOptionPane.OK_OPTION);
-//        }
-        if(this.escribirNombre.getText().matches("[a-zA-Z]+")){
-            JOptionPane.showMessageDialog(this, "Revise el formato, solo letras y maximo 15 caracteres","Error formato", JOptionPane.OK_OPTION);
-        }
+        comprobarNombre();
+        
     }//GEN-LAST:event_añadirActionPerformed
 
     private void escribirNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribirNombreActionPerformed
         // TODO add your handling code here:
+        String nombreClientes;
+        nombreClientes = this.escribirNombre.getText();
+//        this.listaClientes.setListData(nombreClientes);
+        this.deshabilitado(true);
     }//GEN-LAST:event_escribirNombreActionPerformed
-
-    private void MostrarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_MostrarVentasActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_MostrarVentasActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // TODO add your handling code here:
         this.escribirNombre.setText("");
     }//GEN-LAST:event_cancelarActionPerformed
+
+    private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_salirActionPerformed
+
+    private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_eliminarActionPerformed
+
+    private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_buscarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -501,9 +542,10 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentasOrdenadores().setVisible(true);
+                new VentasOrdenadores().setVisible(true); 
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -513,7 +555,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private javax.swing.JRadioButton Disco4;
     private javax.swing.ButtonGroup DiscoGrupo;
     private javax.swing.JDesktopPane Fondo;
-    private javax.swing.JButton GuardarVentas;
     private javax.swing.JRadioButton Memoria1;
     private javax.swing.JRadioButton Memoria2;
     private javax.swing.JRadioButton Memoria3;
@@ -524,7 +565,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private javax.swing.JRadioButton Monitor3;
     private javax.swing.JRadioButton Monitor4;
     private javax.swing.ButtonGroup MonitorGrupo;
-    private javax.swing.JButton MostrarVentas;
     private javax.swing.JCheckBox Opcion1;
     private javax.swing.JCheckBox Opcion2;
     private javax.swing.JCheckBox Opcion3;
@@ -553,4 +593,5 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private javax.swing.JLabel procesador;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
+
 }
