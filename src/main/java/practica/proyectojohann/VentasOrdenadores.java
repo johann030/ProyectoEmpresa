@@ -4,7 +4,9 @@
  */
 package practica.proyectojohann;
 
+import java.awt.Color;
 import javax.swing.JOptionPane;
+import javax.swing.border.LineBorder;
 
 /**
  *
@@ -85,6 +87,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         );
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setBackground(new java.awt.Color(0, 0, 0));
 
         nombre.setBackground(new java.awt.Color(204, 204, 204));
         nombre.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -441,9 +444,9 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
-    private void deshabilitado(Boolean activado){
-        activado = false;
+
+    private void deshabilitado(Boolean activado) {
+        activado = true;
         this.añadir.setEnabled(activado);
         this.buscar.setEnabled(activado);
         this.eliminar.setEnabled(activado);
@@ -468,29 +471,30 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         this.Opcion2.setEnabled(activado);
         this.Opcion3.setEnabled(activado);
         this.Opcion4.setEnabled(activado);
-        
     }
-    private void comprobarNombre() {
+
+    private Boolean comprobarNombre() {
         if (this.escribirNombre.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre no puede quedar vacio", "Error nombre vacio", JOptionPane.OK_OPTION);
         } else if (!this.escribirNombre.getText().matches("[a-zA-Z]{0,15}+")) {
             JOptionPane.showMessageDialog(this, "Revise el formato, solo letras y maximo 15 caracteres", "Error formato", JOptionPane.OK_OPTION);
         }
+        return true;
     }
-    
-    
+
+
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
-        // TODO add your handling code here:
-        comprobarNombre();
-        
+        // TODO add your handling code here:      
+        if(comprobarNombre() == true){
+            this.escribirNombre.setBackground(Color.red);
+        }
     }//GEN-LAST:event_añadirActionPerformed
 
     private void escribirNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribirNombreActionPerformed
         // TODO add your handling code here:
-        String nombreClientes;
-        nombreClientes = this.escribirNombre.getText();
-//        this.listaClientes.setListData(nombreClientes);
-        this.deshabilitado(true);
+        String nombreClientes = this.escribirNombre.getText();
+        String[] clientes = {nombreClientes};
+        this.listaClientes.setListData(clientes);
     }//GEN-LAST:event_escribirNombreActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
@@ -505,7 +509,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
@@ -542,10 +546,10 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new VentasOrdenadores().setVisible(true); 
+                new VentasOrdenadores().setVisible(true);
             }
         });
-        
+
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
