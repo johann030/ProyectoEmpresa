@@ -4,9 +4,11 @@
  */
 package practica.proyectojohann;
 
-import java.awt.Color;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyListener;
+import java.util.Vector;
+import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
-import javax.swing.border.LineBorder;
 
 /**
  *
@@ -14,12 +16,19 @@ import javax.swing.border.LineBorder;
  */
 public class VentasOrdenadores extends javax.swing.JFrame {
 
+    private Vector v = new Vector();
+    
+    Venta ventas = new Venta();
+    
+
     /**
      * Creates new form VentasOrdenadores
      */
     public VentasOrdenadores() {
         initComponents();
-        deshabilitado(false);
+        this.setLocationRelativeTo(null);
+        deshabilitado();
+        porDefecto();
     }
 
     /**
@@ -179,7 +188,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Procesador3.setText("P4 Celeron");
 
         ProcesadorGrupo.add(Procesador4);
-        Procesador4.setSelected(true);
         Procesador4.setText("AMD 650");
 
         MemoriaGrupo.add(Memoria1);
@@ -192,7 +200,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Memoria3.setText("512 Mb");
 
         MemoriaGrupo.add(Memoria4);
-        Memoria4.setSelected(true);
         Memoria4.setText("1024 Mb");
 
         MonitorGrupo.add(Monitor1);
@@ -205,7 +212,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Monitor3.setText("TFT 15\"");
 
         MonitorGrupo.add(Monitor4);
-        Monitor4.setSelected(true);
         Monitor4.setText("TFT 17\"");
 
         DiscoGrupo.add(Disco1);
@@ -218,7 +224,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Disco3.setText("120 Gb");
 
         DiscoGrupo.add(Disco4);
-        Disco4.setSelected(true);
         Disco4.setText("200 Gb");
 
         Opcion1.setSelected(true);
@@ -445,8 +450,8 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void deshabilitado(Boolean activado) {
-        activado = true;
+    private void deshabilitado() {
+        Boolean activado = false;
         this.añadir.setEnabled(activado);
         this.buscar.setEnabled(activado);
         this.eliminar.setEnabled(activado);
@@ -473,28 +478,70 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         this.Opcion4.setEnabled(activado);
     }
 
-    private Boolean comprobarNombre() {
+    private void habilitado() {
+        Boolean activado = true;
+        this.añadir.setEnabled(activado);
+        this.buscar.setEnabled(activado);
+        this.localidadDesplegable.setEnabled(activado);
+        this.Disco1.setEnabled(activado);
+        this.Disco2.setEnabled(activado);
+        this.Disco3.setEnabled(activado);
+        this.Disco4.setEnabled(activado);
+        this.Memoria1.setEnabled(activado);
+        this.Memoria2.setEnabled(activado);
+        this.Memoria3.setEnabled(activado);
+        this.Memoria4.setEnabled(activado);
+        this.Monitor1.setEnabled(activado);
+        this.Monitor2.setEnabled(activado);
+        this.Monitor3.setEnabled(activado);
+        this.Monitor4.setEnabled(activado);
+        this.Procesador1.setEnabled(activado);
+        this.Procesador2.setEnabled(activado);
+        this.Procesador3.setEnabled(activado);
+        this.Procesador4.setEnabled(activado);
+        this.Opcion1.setEnabled(activado);
+        this.Opcion2.setEnabled(activado);
+        this.Opcion3.setEnabled(activado);
+        this.Opcion4.setEnabled(activado);
+    }
+
+    private void botonEliminar() {
+        this.eliminar.setEnabled(true);
+        this.buscar.setEnabled(false);
+        this.añadir.setEnabled(false);
+    }
+    
+    private void porDefecto(){
+//        this.ProcesadorGrupo.setSelected((ButtonModel) this.Procesador4, true);
+//        this.DiscoGrupo.setSelected((ButtonModel) this.Disco4, true);
+//        this.MemoriaGrupo.setSelected((ButtonModel) this.Memoria4, true);
+//        this.MonitorGrupo.setSelected((ButtonModel) this.Monitor4, true);
+    }
+
+    private void comprobarNombre() {
         if (this.escribirNombre.getText().isEmpty()) {
             JOptionPane.showMessageDialog(this, "El nombre no puede quedar vacio", "Error nombre vacio", JOptionPane.OK_OPTION);
         } else if (!this.escribirNombre.getText().matches("[a-zA-Z]{0,15}+")) {
             JOptionPane.showMessageDialog(this, "Revise el formato, solo letras y maximo 15 caracteres", "Error formato", JOptionPane.OK_OPTION);
         }
-        return true;
     }
 
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
-        // TODO add your handling code here:      
-        if(comprobarNombre() == true){
-            this.escribirNombre.setBackground(Color.red);
-        }
+        // TODO add your handling code here:  
+        comprobarNombre();
+        deshabilitado();
     }//GEN-LAST:event_añadirActionPerformed
 
     private void escribirNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribirNombreActionPerformed
-        // TODO add your handling code here:
-        String nombreClientes = this.escribirNombre.getText();
-        String[] clientes = {nombreClientes};
-        this.listaClientes.setListData(clientes);
+        // TODO add your handling code here:   
+        if (!this.nombre.getText().isEmpty()) {
+            habilitado();
+        }
+//        String nombreClientes = this.escribirNombre.getText();
+//        v.addElement(nombreClientes);
+//        this.listaClientes.setListData(v);
+//        jScrollPane1.getViewport().setView(listaClientes);
     }//GEN-LAST:event_escribirNombreActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
@@ -509,11 +556,13 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
         // TODO add your handling code here:
-
+        deshabilitado();
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         // TODO add your handling code here:
+
+        deshabilitado();
     }//GEN-LAST:event_buscarActionPerformed
 
     /**
@@ -597,5 +646,4 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private javax.swing.JLabel procesador;
     private javax.swing.JButton salir;
     // End of variables declaration//GEN-END:variables
-
 }
