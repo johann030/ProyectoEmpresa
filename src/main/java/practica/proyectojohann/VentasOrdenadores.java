@@ -512,10 +512,12 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     }
     
     private void porDefecto(){
-//        this.ProcesadorGrupo.setSelected((ButtonModel) this.Procesador4, true);
-//        this.DiscoGrupo.setSelected((ButtonModel) this.Disco4, true);
-//        this.MemoriaGrupo.setSelected((ButtonModel) this.Memoria4, true);
-//        this.MonitorGrupo.setSelected((ButtonModel) this.Monitor4, true);
+        this.Disco4.setSelected(true);
+        this.Memoria4.setSelected(true);
+        this.Monitor4.setSelected(true);
+        this.Procesador4.setSelected(true);
+        this.Opcion1.setSelected(true);
+        this.Opcion2.setSelected(true);
     }
 
     private void comprobarNombre() {
@@ -525,7 +527,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Revise el formato, solo letras y maximo 15 caracteres", "Error formato", JOptionPane.OK_OPTION);
         }
     }
-
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
         // TODO add your handling code here:  
@@ -538,15 +539,17 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         if (!this.nombre.getText().isEmpty()) {
             habilitado();
         }
-//        String nombreClientes = this.escribirNombre.getText();
-//        v.addElement(nombreClientes);
-//        this.listaClientes.setListData(v);
-//        jScrollPane1.getViewport().setView(listaClientes);
+        String nombreClientes = this.escribirNombre.getText();
+        v.addElement(nombreClientes);
+        this.listaClientes.setListData(v);
+        jScrollPane1.getViewport().setView(listaClientes);
     }//GEN-LAST:event_escribirNombreActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // TODO add your handling code here:
         this.escribirNombre.setText("");
+        porDefecto();
+        deshabilitado();
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
@@ -561,7 +564,6 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         // TODO add your handling code here:
-
         deshabilitado();
     }//GEN-LAST:event_buscarActionPerformed
 
