@@ -4,10 +4,8 @@
  */
 package practica.proyectojohann;
 
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyListener;
+import java.util.List;
 import java.util.Vector;
-import javax.swing.ButtonModel;
 import javax.swing.JOptionPane;
 
 /**
@@ -16,10 +14,10 @@ import javax.swing.JOptionPane;
  */
 public class VentasOrdenadores extends javax.swing.JFrame {
 
-    private Vector v = new Vector();
-    
+    private static Vector<Venta> Ventas = new Vector<>();
+    Vector v = new Vector();
+
     Venta ventas = new Venta();
-    
 
     /**
      * Creates new form VentasOrdenadores
@@ -415,15 +413,14 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                             .addComponent(Disco3)
                             .addGap(0, 0, 0)
                             .addComponent(Disco4))
-                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(FondoLayout.createSequentialGroup()
                             .addComponent(Monitor1)
-                            .addGroup(FondoLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(Monitor2)
-                                .addGap(0, 0, 0)
-                                .addComponent(Monitor3)
-                                .addGap(0, 0, 0)
-                                .addComponent(Monitor4)))))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Monitor2)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                            .addComponent(Monitor3)
+                            .addGap(0, 0, 0)
+                            .addComponent(Monitor4))))
                 .addGap(42, 42, 42)
                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -510,8 +507,8 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         this.buscar.setEnabled(false);
         this.añadir.setEnabled(false);
     }
-    
-    private void porDefecto(){
+
+    private void porDefecto() {
         this.Disco4.setSelected(true);
         this.Memoria4.setSelected(true);
         this.Monitor4.setSelected(true);
@@ -527,6 +524,11 @@ public class VentasOrdenadores extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Revise el formato, solo letras y maximo 15 caracteres", "Error formato", JOptionPane.OK_OPTION);
         }
     }
+    
+    private List listaOpciones(){
+        List aa = null;
+        return aa;
+    }
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
         // TODO add your handling code here:  
@@ -539,15 +541,18 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         if (!this.nombre.getText().isEmpty()) {
             habilitado();
         }
-        String nombreClientes = this.escribirNombre.getText();
-        v.addElement(nombreClientes);
+
+        v.addElement(escribirNombre.getText());
         this.listaClientes.setListData(v);
+        Ventas.add(new Venta(escribirNombre.getText(), localidadDesplegable.toString(), ProcesadorGrupo.getSelection().toString(), MemoriaGrupo.getSelection().toString(),MonitorGrupo.getSelection().toString(), DiscoGrupo.getSelection().toString(), listaOpciones()));
         jScrollPane1.getViewport().setView(listaClientes);
+        this.escribirNombre.setText("");
     }//GEN-LAST:event_escribirNombreActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // TODO add your handling code here:
         this.escribirNombre.setText("");
+        this.listaClientes.removeAll();
         porDefecto();
         deshabilitado();
     }//GEN-LAST:event_cancelarActionPerformed
