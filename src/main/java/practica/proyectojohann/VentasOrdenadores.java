@@ -4,8 +4,14 @@
  */
 package practica.proyectojohann;
 
+import java.util.ArrayList;
+import java.util.Enumeration;
 import java.util.List;
 import java.util.Vector;
+import javax.swing.AbstractButton;
+import javax.swing.ButtonGroup;
+import javax.swing.DefaultListModel;
+import javax.swing.JCheckBox;
 import javax.swing.JOptionPane;
 
 /**
@@ -14,10 +20,8 @@ import javax.swing.JOptionPane;
  */
 public class VentasOrdenadores extends javax.swing.JFrame {
 
-    private static Vector<Venta> Ventas = new Vector<>();
-    Vector v = new Vector();
-
-    Venta ventas = new Venta();
+    private Vector<Venta> Ventas = new Vector<>();
+    private Vector v = new Vector();
 
     /**
      * Creates new form VentasOrdenadores
@@ -307,47 +311,47 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
                             .addGroup(FondoLayout.createSequentialGroup()
+                                .addGap(0, 21, Short.MAX_VALUE)
+                                .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(13, 13, 13)
+                                .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(263, 263, 263)
                                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(FondoLayout.createSequentialGroup()
-                                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Procesador1)
-                                            .addComponent(Procesador2)
-                                            .addComponent(Procesador3)
-                                            .addComponent(Procesador4))
-                                        .addGap(64, 64, 64)
-                                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Memoria1)
-                                            .addComponent(Memoria2)
-                                            .addComponent(Memoria3)
-                                            .addComponent(Memoria4))
-                                        .addGap(76, 76, 76)
-                                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Monitor2)
-                                            .addComponent(Monitor3)
-                                            .addComponent(Monitor4)
-                                            .addComponent(Monitor1))
-                                        .addGap(75, 75, 75)
-                                        .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(Disco1)
-                                            .addComponent(Disco2)
-                                            .addComponent(Disco3)
-                                            .addComponent(Disco4))
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                                        .addGap(0, 21, Short.MAX_VALUE)
-                                        .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                        .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(13, 13, 13)
-                                        .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(263, 263, 263)))
+                                    .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(15, 15, 15))
+                            .addGroup(FondoLayout.createSequentialGroup()
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Procesador1)
+                                    .addComponent(Procesador2)
+                                    .addComponent(Procesador3)
+                                    .addComponent(Procesador4))
+                                .addGap(64, 64, 64)
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Memoria1)
+                                    .addComponent(Memoria2)
+                                    .addComponent(Memoria3)
+                                    .addComponent(Memoria4))
+                                .addGap(76, 76, 76)
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Monitor2)
+                                    .addComponent(Monitor3)
+                                    .addComponent(Monitor4)
+                                    .addComponent(Monitor1))
+                                .addGap(75, 75, 75)
+                                .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(Disco1)
+                                    .addComponent(Disco2)
+                                    .addComponent(Disco3)
+                                    .addComponent(Disco4))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(Opcion1)
                                     .addComponent(Opcion4)
                                     .addComponent(Opcion2)
-                                    .addComponent(Opcion3)
-                                    .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                    .addComponent(Opcion3))))
                         .addGap(40, 40, 40))))
         );
         FondoLayout.setVerticalGroup(
@@ -396,15 +400,23 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                         .addComponent(Memoria3)
                         .addGap(0, 0, 0)
                         .addComponent(Memoria4))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
-                        .addComponent(Opcion1)
+                    .addGroup(FondoLayout.createSequentialGroup()
+                        .addComponent(Monitor1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Monitor2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Monitor3)
                         .addGap(0, 0, 0)
-                        .addComponent(Opcion2)
-                        .addGap(0, 0, 0)
-                        .addComponent(Opcion3)
-                        .addGap(0, 0, 0)
-                        .addComponent(Opcion4))
-                    .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addComponent(Monitor4))
+                    .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, FondoLayout.createSequentialGroup()
+                            .addComponent(Opcion1)
+                            .addGap(0, 0, 0)
+                            .addComponent(Opcion2)
+                            .addGap(0, 0, 0)
+                            .addComponent(Opcion3)
+                            .addGap(0, 0, 0)
+                            .addComponent(Opcion4))
                         .addGroup(FondoLayout.createSequentialGroup()
                             .addComponent(Disco1)
                             .addGap(0, 0, 0)
@@ -412,15 +424,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                             .addGap(0, 0, 0)
                             .addComponent(Disco3)
                             .addGap(0, 0, 0)
-                            .addComponent(Disco4))
-                        .addGroup(FondoLayout.createSequentialGroup()
-                            .addComponent(Monitor1)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Monitor2)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(Monitor3)
-                            .addGap(0, 0, 0)
-                            .addComponent(Monitor4))))
+                            .addComponent(Disco4))))
                 .addGap(42, 42, 42)
                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -509,6 +513,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     }
 
     private void porDefecto() {
+        this.escribirNombre.setText("");
         this.Disco4.setSelected(true);
         this.Memoria4.setSelected(true);
         this.Monitor4.setSelected(true);
@@ -524,35 +529,168 @@ public class VentasOrdenadores extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Revise el formato, solo letras y maximo 15 caracteres", "Error formato", JOptionPane.OK_OPTION);
         }
     }
-    
-    private List listaOpciones(){
-        List aa = null;
-        return aa;
+
+    private void añadirLista() {
+        List<String> opcionesSeleccionadas = new ArrayList();
+        JCheckBox[] opcionesExtras = {this.Opcion1, this.Opcion2, this.Opcion3, this.Opcion4};
+
+        //Obtener los datos
+        String nombre = this.escribirNombre.getText();
+        String localidad = (String) this.localidadDesplegable.getSelectedItem();
+        String procesador = boton(this.ProcesadorGrupo);
+        String memoria = boton(this.MemoriaGrupo);
+        String monitor = boton(this.MonitorGrupo);
+        String discoDuro = boton(this.DiscoGrupo);
+
+        //Obtener las opciones seleccionadas
+        for (JCheckBox opcion : opcionesExtras) {
+            if (opcion != null && opcion.isSelected()) {
+                opcionesSeleccionadas.add(opcion.getText());
+            }
+        }
+
+        //Crear el objeto Venta con los datos
+        Venta venta = new Venta(nombre, localidad, procesador, memoria, monitor, discoDuro, opcionesSeleccionadas);
+
+        //Añadimos el nombre del cliente a la lista
+        v.addElement(escribirNombre.getText());
+
+        //Actualizamos visualmente la lista
+        this.listaClientes.setListData(v);
+        jScrollPane1.getViewport().setView(listaClientes);
+
+        //Añadimos la venta al vector
+        Ventas.add(venta);
+
+        //Limpamos el campo texto
+        this.escribirNombre.setText("");
+    }
+
+    private String boton(ButtonGroup group) {
+        Enumeration<AbstractButton> buttons = group.getElements();
+        while (buttons.hasMoreElements()) {
+            AbstractButton button = buttons.nextElement();
+            if (button.isSelected()) {
+                return button.getText(); // Retorna el texto del botón seleccionado
+            }
+        }
+        return null; // Retorna null si no hay botón seleccionado
+    }
+
+    private void buscarCliente() {
+        String nombreCliente = this.escribirNombre.getText().trim();
+        //Comprobar si el nombre se ha quitado
+        if (nombreCliente.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Introduzca un cliente.", "Error cliente", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        //Buscar ventas del cliente
+        List<Venta> ventasClienes = new ArrayList<>();
+        for (Venta venta : Ventas) {
+            if (venta.getNombre().equalsIgnoreCase(nombreCliente)) {
+                ventasClienes.add(venta);
+            }
+        }
+
+        //Si no hay ventas del cliente
+        if (ventasClienes.isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Este cliente no ha realizado ninguna compra.", "Sin ventas", JOptionPane.INFORMATION_MESSAGE);
+            return;
+        }
+
+        //Mostrar las ventas del cliente
+        int numVenta = 0;
+        while (numVenta < ventasClienes.size()) {
+            Venta venta = ventasClienes.get(numVenta);
+
+            //Mostrar los detalles de la venta
+            String mensaje = "Venta #" + (numVenta + 1) + "\n"
+                    + "Localidad: " + venta.getLocalidad() + "\n"
+                    + "Procesador: " + venta.getProcesador() + "\n"
+                    + "Memoria: " + venta.getMemoria() + "\n"
+                    + "Monitor: " + venta.getMonitor() + "\n"
+                    + "Disco Duro: " + venta.getDiscoDuro() + "\n"
+                    + "Opciones: " + String.join(", ", venta.getOpcionesSeleccionadas().toString()) + "\n";
+
+            int respuesta = JOptionPane.showConfirmDialog(this, mensaje + "\n¿Desea ver otra venta de este cliente?", "Ventas del cliente", JOptionPane.YES_NO_OPTION);
+            if (respuesta == JOptionPane.NO_OPTION) {
+                break;
+            }
+            //Incrementar el numVenta para mostrar la siguiente venta 
+            numVenta++;
+        }
+    }
+
+    private void eliminarCliente() {
+        // Verificar que hay un cliente seleccionado en la lista
+        String nombreClienteSeleccionado = listaClientes.getSelectedValue();
+        botonEliminar();
+        if (nombreClienteSeleccionado == null) {
+            JOptionPane.showMessageDialog(this, "Por favor, seleccione un cliente de la lista.", "Error", JOptionPane.ERROR_MESSAGE);
+            return;
+        }
+
+        // Buscar la venta correspondiente al nombre seleccionado
+        Venta ventaSeleccionada = null;
+        for (Venta venta : Ventas) {
+            if (venta.getNombre().equalsIgnoreCase(nombreClienteSeleccionado)) {
+                ventaSeleccionada = venta;
+                break;
+            }
+        }
+
+        if (ventaSeleccionada != null) {
+            // Mostrar los detalles de la venta en los campos correspondientes
+            this.escribirNombre.setText(ventaSeleccionada.getNombre());
+            this.localidadDesplegable.setSelectedItem(ventaSeleccionada.getLocalidad());
+            this.ProcesadorGrupo.setSelected(this.ProcesadorGrupo.getSelection(), false);
+            this.MemoriaGrupo.setSelected(this.MemoriaGrupo.getSelection(), false);
+            this.MonitorGrupo.setSelected(this.MonitorGrupo.getSelection(), false);
+            this.DiscoGrupo.setSelected(this.DiscoGrupo.getSelection(), false);
+
+            // Preguntar si el usuario está seguro de eliminar la venta
+            int confirmacion = JOptionPane.showConfirmDialog(this,
+                    "¿Está seguro de que desea eliminar la venta de " + nombreClienteSeleccionado + "?",
+                    "Confirmación de eliminación",
+                    JOptionPane.YES_NO_OPTION);
+
+            if (confirmacion == JOptionPane.YES_OPTION) {
+                // Eliminar la venta del vector de ventas
+                Ventas.remove(ventaSeleccionada);
+
+                // Eliminar el cliente de la lista de clientes
+                DefaultListModel<String> model = (DefaultListModel<String>) listaClientes.getModel();
+                model.removeElement(nombreClienteSeleccionado);
+
+                // Limpiar el campo nombre
+                escribirNombre.setText("");
+
+                JOptionPane.showMessageDialog(this, "La venta ha sido eliminada.", "Eliminación exitosa", JOptionPane.INFORMATION_MESSAGE);
+            }
+        } else {
+            JOptionPane.showMessageDialog(this, "No se encontró una venta para este cliente.", "Error", JOptionPane.ERROR_MESSAGE);
+        }
     }
 
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
         // TODO add your handling code here:  
         comprobarNombre();
+        añadirLista();
+        porDefecto();
         deshabilitado();
     }//GEN-LAST:event_añadirActionPerformed
 
     private void escribirNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_escribirNombreActionPerformed
-        // TODO add your handling code here:   
-        if (!this.nombre.getText().isEmpty()) {
+        // TODO add your handling code here:
+        if (!this.escribirNombre.getText().trim().isEmpty()) {
             habilitado();
+            localidadDesplegable.requestFocusInWindow();
         }
-
-        v.addElement(escribirNombre.getText());
-        this.listaClientes.setListData(v);
-        Ventas.add(new Venta(escribirNombre.getText(), localidadDesplegable.toString(), ProcesadorGrupo.getSelection().toString(), MemoriaGrupo.getSelection().toString(),MonitorGrupo.getSelection().toString(), DiscoGrupo.getSelection().toString(), listaOpciones()));
-        jScrollPane1.getViewport().setView(listaClientes);
-        this.escribirNombre.setText("");
     }//GEN-LAST:event_escribirNombreActionPerformed
 
     private void cancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelarActionPerformed
         // TODO add your handling code here:
-        this.escribirNombre.setText("");
-        this.listaClientes.removeAll();
         porDefecto();
         deshabilitado();
     }//GEN-LAST:event_cancelarActionPerformed
@@ -565,11 +703,15 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
         // TODO add your handling code here:
         deshabilitado();
+        eliminarCliente();
+        porDefecto();
     }//GEN-LAST:event_eliminarActionPerformed
 
     private void buscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buscarActionPerformed
         // TODO add your handling code here:
+        buscarCliente();
         deshabilitado();
+        porDefecto();
     }//GEN-LAST:event_buscarActionPerformed
 
     /**
