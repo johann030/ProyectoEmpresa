@@ -1,9 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
-package practica.proyectojohann;
+package ProyectoJohann2;
 
+import java.io.BufferedWriter;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.FileWriter;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 import java.util.Enumeration;
 import java.util.List;
@@ -85,6 +87,8 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Opcion2 = new javax.swing.JCheckBox();
         Opcion3 = new javax.swing.JCheckBox();
         Opcion4 = new javax.swing.JCheckBox();
+        mostrarVentas = new javax.swing.JButton();
+        guardarVentas = new javax.swing.JButton();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -238,6 +242,22 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
         Opcion4.setText("Backup Restore");
 
+        mostrarVentas.setText("Mostrar Ventas");
+        mostrarVentas.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
+        mostrarVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mostrarVentasActionPerformed(evt);
+            }
+        });
+
+        guardarVentas.setText("Guardar ventas");
+        guardarVentas.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(153, 204, 255)));
+        guardarVentas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                guardarVentasActionPerformed(evt);
+            }
+        });
+
         Fondo.setLayer(nombre, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(localidad, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(clientes, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -274,6 +294,8 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         Fondo.setLayer(Opcion2, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(Opcion3, javax.swing.JLayeredPane.DEFAULT_LAYER);
         Fondo.setLayer(Opcion4, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Fondo.setLayer(mostrarVentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        Fondo.setLayer(guardarVentas, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout FondoLayout = new javax.swing.GroupLayout(Fondo);
         Fondo.setLayout(FondoLayout);
@@ -315,9 +337,13 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                                 .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(13, 13, 13)
+                                .addGap(8, 8, 8)
                                 .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(263, 263, 263)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(mostrarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(guardarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(74, 74, 74)
                                 .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -430,7 +456,9 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                     .addGroup(FondoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(añadir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(buscar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(eliminar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(mostrarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(guardarVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(cancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(salir, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -615,6 +643,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
             int respuesta = JOptionPane.showConfirmDialog(this, mensaje + "\n¿Desea ver otra venta de este cliente?", "Ventas del cliente", JOptionPane.YES_NO_OPTION);
             if (respuesta == JOptionPane.NO_OPTION) {
+                JOptionPane.showConfirmDialog(this, "Ya no hay clientes", "Sin clientes", JOptionPane.CLOSED_OPTION);
                 break;
             }
             //Incrementar el numVenta para mostrar la siguiente venta 
@@ -673,6 +702,65 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         }
     }
 
+    private void mostrarVentas() {
+        try {
+            FileInputStream ficheroentrada = new FileInputStream("Ventas.dat");
+            ObjectInputStream dataIs = new ObjectInputStream(ficheroentrada);
+            if (ficheroentrada.available() > 0) {
+                while (ficheroentrada.available() > 0) {
+                    Venta venta = (Venta) dataIs.readObject();
+                    String mensaje = venta.toString();
+                    int respuesta = JOptionPane.showConfirmDialog(this, mensaje + "\n¿Desea ver otra venta de este cliente?", "Ventas del cliente", JOptionPane.YES_NO_OPTION);
+
+                    if (respuesta == JOptionPane.NO_OPTION) {
+                        JOptionPane.showConfirmDialog(this, "Terminado", "Terminar", JOptionPane.CLOSED_OPTION);
+                        break;
+                    }
+
+                    if (venta == null) {
+                        JOptionPane.showConfirmDialog(this, "Ya no hay clientes", "Sin clientes", JOptionPane.CLOSED_OPTION);
+                    }
+                }
+            }else{
+                JOptionPane.showConfirmDialog(this, "No hay clientes", "Sin clientes", JOptionPane.CLOSED_OPTION);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        this.escribirNombre.requestFocusInWindow();
+    }
+
+    private void guardarVentas() {
+        //Escribir venta en archivo de texto
+        try {
+            BufferedWriter bw = new BufferedWriter(new FileWriter("Ventas.txt"));
+
+            for (Venta venta : Ventas) {
+                bw.write(venta.toString());
+                bw.newLine();
+            }
+            bw.close();
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        //Escribir venta en archivo binario
+        try {
+            FileOutputStream ficherosalida = new FileOutputStream("Ventas.dat");
+            ObjectOutputStream dataOb = new ObjectOutputStream(ficherosalida);
+
+            for (Venta venta : Ventas) {
+                dataOb.writeObject(venta);
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+        if (Ventas.size() == 0) {
+            JOptionPane.showMessageDialog(this, "No se han hecho ventas", "Sin ventas", JOptionPane.INFORMATION_MESSAGE);
+        }
+    }
+
     private void añadirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_añadirActionPerformed
         // TODO add your handling code here:  
         comprobarNombre();
@@ -714,6 +802,16 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         porDefecto();
     }//GEN-LAST:event_buscarActionPerformed
 
+    private void mostrarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mostrarVentasActionPerformed
+        // TODO add your handling code here:
+        mostrarVentas();
+    }//GEN-LAST:event_mostrarVentasActionPerformed
+
+    private void guardarVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_guardarVentasActionPerformed
+        // TODO add your handling code here:
+        guardarVentas();
+    }//GEN-LAST:event_guardarVentasActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -739,6 +837,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
             java.util.logging.Logger.getLogger(VentasOrdenadores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
@@ -783,6 +882,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private javax.swing.JLabel disco;
     private javax.swing.JButton eliminar;
     private java.awt.TextField escribirNombre;
+    private javax.swing.JButton guardarVentas;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JList<String> listaClientes;
@@ -790,6 +890,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> localidadDesplegable;
     private javax.swing.JLabel memoria;
     private javax.swing.JLabel monitor;
+    private javax.swing.JButton mostrarVentas;
     private javax.swing.JLabel nombre;
     private javax.swing.JLabel opciones;
     private javax.swing.JLabel procesador;
