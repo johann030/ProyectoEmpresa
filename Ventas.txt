@@ -1,0 +1,1 @@
+Venta{nombre=a, localidad=Villalba, procesador=AMD 650, memoria=1024 Mb, monitor=TFT 17", discoDuro=200 Gb, opcionesSeleccionadas=[Grabadora DVD, Wifi]}

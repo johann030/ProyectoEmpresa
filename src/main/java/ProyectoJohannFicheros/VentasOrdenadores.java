@@ -1,4 +1,4 @@
-package ProyectoJohann2;
+package ProyectoJohannFicheros;
 
 import java.io.BufferedWriter;
 import java.io.FileInputStream;
@@ -721,7 +721,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                         JOptionPane.showConfirmDialog(this, "Ya no hay clientes", "Sin clientes", JOptionPane.CLOSED_OPTION);
                     }
                 }
-            }else{
+            } else {
                 JOptionPane.showConfirmDialog(this, "No hay clientes", "Sin clientes", JOptionPane.CLOSED_OPTION);
             }
         } catch (Exception e) {
@@ -738,6 +738,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
             for (Venta venta : Ventas) {
                 bw.write(venta.toString());
                 bw.newLine();
+                JOptionPane.showConfirmDialog(this, "Los clientes han sido guardados en el fichero", "OK", JOptionPane.CLOSED_OPTION);
             }
             bw.close();
         } catch (Exception e) {

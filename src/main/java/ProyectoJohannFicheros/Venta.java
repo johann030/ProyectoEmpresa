@@ -1,4 +1,4 @@
-package ProyectoJohann2;
+package ProyectoJohannFicheros;
 
 import java.io.Serializable;
 import java.util.List;
