@@ -1,1 +1,4 @@
-Venta{nombre=a, localidad=Villalba, procesador=AMD 650, memoria=1024 Mb, monitor=TFT 17", discoDuro=200 Gb, opcionesSeleccionadas=[Grabadora DVD, Wifi]}
+Venta{nombre=johann, localidad=Villalba, procesador=P4 3.2 Gb, memoria=1024 Mb, monitor=TFT 17", discoDuro=200 Gb, opcionesSeleccionadas=[Grabadora DVD, Wifi]}
+Venta{nombre=laura, localidad=Villalba, procesador=P4 Celeron, memoria=128 Mb, monitor=TFT 17", discoDuro=200 Gb, opcionesSeleccionadas=[Grabadora DVD, Wifi, Sintonizador TV, Backup Restore]}
+Venta{nombre=jesus, localidad=Villalba, procesador=P4 3.2 Gb, memoria=1024 Mb, monitor=17", discoDuro=80 Gb, opcionesSeleccionadas=[Grabadora DVD, Wifi, Sintonizador TV, Backup Restore]}
+Venta{nombre=juan, localidad=Villalba, procesador=AMD 650, memoria=1024 Mb, monitor=TFT 17", discoDuro=200 Gb, opcionesSeleccionadas=[Grabadora DVD, Wifi, Sintonizador TV, Backup Restore]}

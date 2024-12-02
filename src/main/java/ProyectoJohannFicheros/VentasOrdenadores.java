@@ -14,7 +14,9 @@ import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.DefaultListModel;
 import javax.swing.JCheckBox;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import javax.swing.JViewport;
 
 /**
  *
@@ -33,6 +35,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
         this.setLocationRelativeTo(null);
         deshabilitado();
         porDefecto();
+        this.setDefaultCloseOperation(JFrame.DO_NOTHING_ON_CLOSE);
     }
 
     /**
@@ -585,7 +588,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
 
         //Actualizamos visualmente la lista
         this.listaClientes.setListData(v);
-        jScrollPane1.getViewport().setView(listaClientes);
+        this.jScrollPane1.getViewport().setView(listaClientes);
 
         //Añadimos la venta al vector
         Ventas.add(venta);
@@ -703,26 +706,29 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     }
 
     private void mostrarVentas() {
+        //Lectura de los ficheros binarios
         try {
             FileInputStream ficheroentrada = new FileInputStream("Ventas.dat");
             ObjectInputStream dataIs = new ObjectInputStream(ficheroentrada);
             if (ficheroentrada.available() > 0) {
                 while (ficheroentrada.available() > 0) {
                     Venta venta = (Venta) dataIs.readObject();
-                    String mensaje = venta.toString();
-                    int respuesta = JOptionPane.showConfirmDialog(this, mensaje + "\n¿Desea ver otra venta de este cliente?", "Ventas del cliente", JOptionPane.YES_NO_OPTION);
 
-                    if (respuesta == JOptionPane.NO_OPTION) {
-                        JOptionPane.showConfirmDialog(this, "Terminado", "Terminar", JOptionPane.CLOSED_OPTION);
-                        break;
+                    if (this.jScrollPane1.getViewport() == null) {
+                        this.jScrollPane1.setViewport(new JViewport());
+
+                        this.jScrollPane1.getViewport().setView(listaClientes);
                     }
 
                     if (venta == null) {
                         JOptionPane.showConfirmDialog(this, "Ya no hay clientes", "Sin clientes", JOptionPane.CLOSED_OPTION);
                     }
+
+                    if (ficheroentrada.available() == 0) {
+                        JOptionPane.showConfirmDialog(this, "No hay mas cliente", "Ya no hay clientes", JOptionPane.CLOSED_OPTION);
+                        break;
+                    }
                 }
-            } else {
-                JOptionPane.showConfirmDialog(this, "No hay clientes", "Sin clientes", JOptionPane.CLOSED_OPTION);
             }
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -741,6 +747,7 @@ public class VentasOrdenadores extends javax.swing.JFrame {
                 JOptionPane.showConfirmDialog(this, "Los clientes han sido guardados en el fichero", "OK", JOptionPane.CLOSED_OPTION);
             }
             bw.close();
+            this.jScrollPane1.setViewport(null);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -753,6 +760,8 @@ public class VentasOrdenadores extends javax.swing.JFrame {
             for (Venta venta : Ventas) {
                 dataOb.writeObject(venta);
             }
+            dataOb.close();
+            ficherosalida.close();
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -785,8 +794,14 @@ public class VentasOrdenadores extends javax.swing.JFrame {
     }//GEN-LAST:event_cancelarActionPerformed
 
     private void salirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_salirActionPerformed
-        // TODO add your handling code here:
-        dispose();
+        int mensaje = JOptionPane.showConfirmDialog(this, "Quedan ventas sin guardar y se perderan si sale del programa" + "\n"
+                + "¿Esta seguro de salir del programa?", "Ventas", JOptionPane.YES_NO_OPTION);
+        if (mensaje == JOptionPane.NO_OPTION) {
+            return;
+        } else {
+            dispose();
+        }
+
     }//GEN-LAST:event_salirActionPerformed
 
     private void eliminarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_eliminarActionPerformed
