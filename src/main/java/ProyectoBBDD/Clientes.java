@@ -53,6 +53,9 @@ public class Clientes extends javax.swing.JFrame {
         mail = new javax.swing.JTextField();
         textoVentas = new javax.swing.JLabel();
         totalVentas = new javax.swing.JTextField();
+        btnAceptar = new javax.swing.JButton();
+        btnCancelar = new javax.swing.JButton();
+        btnSalir = new javax.swing.JButton();
         menu = new javax.swing.JMenuBar();
         mantenimiento = new javax.swing.JMenu();
         altas = new javax.swing.JMenuItem();
@@ -147,6 +150,31 @@ public class Clientes extends javax.swing.JFrame {
             }
         });
 
+        btnAceptar.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        btnAceptar.setText("Aceptar");
+        btnAceptar.setMaximumSize(new java.awt.Dimension(75, 25));
+        btnAceptar.setMinimumSize(new java.awt.Dimension(75, 25));
+        btnAceptar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAceptarActionPerformed(evt);
+            }
+        });
+
+        btnCancelar.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        btnCancelar.setText("Cancelar");
+        btnCancelar.setMaximumSize(new java.awt.Dimension(81, 25));
+        btnCancelar.setMinimumSize(new java.awt.Dimension(81, 25));
+
+        btnSalir.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
+        btnSalir.setText("Salir");
+        btnSalir.setMaximumSize(new java.awt.Dimension(57, 25));
+        btnSalir.setMinimumSize(new java.awt.Dimension(57, 25));
+        btnSalir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSalirActionPerformed(evt);
+            }
+        });
+
         mantenimiento.setText("Mantenimiento");
 
         altas.setText("Altas");
@@ -194,56 +222,64 @@ public class Clientes extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(nombre)
                     .addComponent(apellidos)
-                    .addComponent(textoApellidos)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textocodigo)
-                            .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(textoApellidos)
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(textoNIF)
-                                .addGap(75, 75, 75))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(totalVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 15, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textocodigo)
+                                    .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(textoNIF)
+                                        .addGap(93, 93, 93))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                                        .addComponent(nif, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(totalVentas, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)))
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textoNombre)
+                                    .addComponent(letraNIF, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE)))
                             .addGroup(layout.createSequentialGroup()
-                                .addComponent(textoNombre)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(letraNIF)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(textoTelefono)
-                        .addGap(64, 64, 64)
-                        .addComponent(textoMovil)
-                        .addGap(78, 78, 78)
-                        .addComponent(textoFax))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoMail)
-                            .addComponent(fax, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(textoTelefono)
+                                .addGap(64, 64, 64)
+                                .addComponent(textoMovil)
+                                .addGap(78, 78, 78)
+                                .addComponent(textoFax))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textoMail)
+                                    .addComponent(fax, javax.swing.GroupLayout.PREFERRED_SIZE, 450, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addGap(18, 18, 18)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textoVentas)
+                                    .addComponent(mail, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(textoDomicilio)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(localidad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(20, 20, 20)
+                                .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(movil, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(textoCP)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(textoLocalidad)
+                                    .addComponent(CP, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(nombre, javax.swing.GroupLayout.PREFERRED_SIZE, 498, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoVentas)
-                            .addComponent(mail, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addComponent(textoDomicilio)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(localidad, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)
-                        .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(movil, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(textoCP)
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(domicilio, javax.swing.GroupLayout.PREFERRED_SIZE, 70, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(38, 38, 38)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(textoLocalidad)
-                            .addComponent(CP, javax.swing.GroupLayout.PREFERRED_SIZE, 331, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -252,11 +288,10 @@ public class Clientes extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(textocodigo)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(codigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(textoNIF, javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(textoNombre, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -265,8 +300,7 @@ public class Clientes extends javax.swing.JFrame {
                             .addComponent(letraNIF, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                 .addComponent(totalVentas, javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(nif, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 1, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(nif, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addGap(18, 18, 18)
                 .addComponent(textoApellidos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -297,36 +331,47 @@ public class Clientes extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                         .addComponent(localidad, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addComponent(telefono, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(textoMail)
-                        .addGap(48, 48, 48))
+                        .addGap(29, 29, 29))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addComponent(textoVentas)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(mail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(fax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(19, 19, 19))))
+                            .addComponent(fax, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(btnAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCancelar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSalir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(32, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoActionPerformed
-        if(!(this.movil.getText().matches("d[5]"))){
-            JOptionPane.showMessageDialog(this, "El formato debe tener 5 numeros.");
+        if (!(this.codigo.getText().matches("\\d{5}"))) {
+            JOptionPane.showMessageDialog(this, "El formato debe tener 5 numeros.","Error codigo", JOptionPane.CLOSED_OPTION);
+        }
+        if(this.codigo.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No puede estar vacio.","Error codigo", JOptionPane.CLOSED_OPTION);
         }
     }//GEN-LAST:event_codigoActionPerformed
-
+    
     private void totalVentasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalVentasActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_totalVentasActionPerformed
 
     private void movilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_movilActionPerformed
-        if(!(this.movil.getText().matches("d[9]"))){
-            JOptionPane.showMessageDialog(this, "El formato debe tener 9 numeros.");
+        if (!(this.movil.getText().matches("\\d{9}"))) {
+            JOptionPane.showMessageDialog(this, "El formato debe tener 9 numeros.","Error movil", JOptionPane.CLOSED_OPTION);
+        }
+        if(this.movil.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No puede estar vacio.","Error movil", JOptionPane.CLOSED_OPTION);
         }
     }//GEN-LAST:event_movilActionPerformed
 
@@ -335,8 +380,11 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_localidadActionPerformed
 
     private void telefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_telefonoActionPerformed
-       if(!(this.telefono.getText().matches("d[9]"))){
-            JOptionPane.showMessageDialog(this, "El formato debe tener 9 numeros.");
+        if (!(this.telefono.getText().matches("\\d{9}"))) {
+            JOptionPane.showMessageDialog(this, "El formato debe tener 9 numeros.","Error telefono", JOptionPane.CLOSED_OPTION);
+        }
+        if(this.telefono.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No puede estar vacio.","Error telefono", JOptionPane.CLOSED_OPTION);
         }
     }//GEN-LAST:event_telefonoActionPerformed
 
@@ -349,16 +397,31 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_CPActionPerformed
 
     private void faxActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_faxActionPerformed
-        if(!(this.fax.getText().matches("d[9]"))){
-            JOptionPane.showMessageDialog(this, "El formato debe tener 9 numeros.");
+        if (!(this.fax.getText().matches("\\d{9}"))) {
+            JOptionPane.showMessageDialog(this, "El formato debe tener 9 numeros.","Error fax", JOptionPane.CLOSED_OPTION);
+        }
+        if(this.fax.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No puede estar vacio.","Error fax", JOptionPane.CLOSED_OPTION);
         }
     }//GEN-LAST:event_faxActionPerformed
 
     private void nifActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nifActionPerformed
-        if(!(this.fax.getText().matches("d[8]"))){
-            JOptionPane.showMessageDialog(this, "El formato debe tener 8 numeros.");
+        if (!(this.nif.getText().matches("\\d{8}"))) {
+            JOptionPane.showMessageDialog(this, "El formato debe tener 8 numeros.","Error nif", JOptionPane.CLOSED_OPTION);
+        }
+        if(this.nif.getText().isEmpty()){
+            JOptionPane.showMessageDialog(this, "No puede estar vacio.","Error nif", JOptionPane.CLOSED_OPTION);
         }
     }//GEN-LAST:event_nifActionPerformed
+
+    private void btnAceptarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAceptarActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnAceptarActionPerformed
+
+    private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnSalirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -401,6 +464,9 @@ public class Clientes extends javax.swing.JFrame {
     private javax.swing.JMenuItem altas;
     private javax.swing.JTextField apellidos;
     private javax.swing.JMenuItem bajas;
+    private javax.swing.JButton btnAceptar;
+    private javax.swing.JButton btnCancelar;
+    private javax.swing.JButton btnSalir;
     private javax.swing.JTextField codigo;
     private javax.swing.JMenu consultas;
     private javax.swing.JTextField domicilio;
