@@ -5,7 +5,6 @@
 package ProyectoBBDD;
 
 import javax.swing.JOptionPane;
-import javax.swing.border.Border;
 
 /**
  *
