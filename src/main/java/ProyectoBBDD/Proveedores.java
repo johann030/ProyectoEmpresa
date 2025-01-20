@@ -5,17 +5,17 @@
 package ProyectoBBDD;
 
 import javax.swing.JOptionPane;
+import javax.swing.border.Border;
 
 /**
  *
  * @author alumno
  */
-public class Clientes extends javax.swing.JFrame {
-
+public class Proveedores extends javax.swing.JFrame {
     /**
      * Creates new form Clientes
      */
-    public Clientes() {
+    public Proveedores() {
         initComponents();
     }
 
@@ -354,6 +354,7 @@ public class Clientes extends javax.swing.JFrame {
 
     private void codigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_codigoActionPerformed
         if (!(this.codigo.getText().matches("\\d{5}"))) {
+            
             JOptionPane.showMessageDialog(this, "El formato debe tener 5 numeros.", "Error CODIGO", JOptionPane.CLOSED_OPTION);
         }
         if (this.codigo.getText().isEmpty()) {
@@ -451,20 +452,21 @@ public class Clientes extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Clientes.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Proveedores.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
+        //</editor-fold>
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Clientes().setVisible(true);
+                new Proveedores().setVisible(true);
             }
         });
     }

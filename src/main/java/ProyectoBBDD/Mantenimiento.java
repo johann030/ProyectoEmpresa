@@ -50,20 +50,23 @@ public class Mantenimiento extends javax.swing.JPanel {
         jDesktopPane1Layout.setHorizontalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(150, 150, 150)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(clientes)
-                    .addComponent(mantenimiento))
-                .addContainerGap(151, Short.MAX_VALUE))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(119, 119, 119)
+                        .addComponent(mantenimiento))
+                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
+                        .addGap(142, 142, 142)
+                        .addComponent(clientes)))
+                .addContainerGap(182, Short.MAX_VALUE))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+                .addGap(66, 66, 66)
                 .addComponent(mantenimiento)
-                .addGap(18, 18, 18)
+                .addGap(52, 52, 52)
                 .addComponent(clientes)
-                .addContainerGap(181, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
