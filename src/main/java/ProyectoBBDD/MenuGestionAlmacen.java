@@ -113,13 +113,13 @@ public class MenuGestionAlmacen extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void clientesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clientesActionPerformed
-        Clientes cl = new Clientes();
+        MenuClientes cl = new MenuClientes();
         cl.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_clientesActionPerformed
 
     private void proveedoresActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_proveedoresActionPerformed
-        Proveedores pr = new Proveedores();
+        MenuProveedores pr = new MenuProveedores();
         pr.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_proveedoresActionPerformed
