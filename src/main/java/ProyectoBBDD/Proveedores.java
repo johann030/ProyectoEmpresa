@@ -187,6 +187,11 @@ public class Proveedores extends javax.swing.JFrame {
         mantenimiento.add(jSeparator1);
 
         volver.setText("Volver");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
         mantenimiento.add(volver);
 
         menu.add(mantenimiento);
@@ -417,6 +422,12 @@ public class Proveedores extends javax.swing.JFrame {
         // TODO add your handling code here:
         dispose();
     }//GEN-LAST:event_btnSalirActionPerformed
+
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        dispose();
+        MenuGestionAlmacen m = new MenuGestionAlmacen();
+        m.setEnabled(true);
+    }//GEN-LAST:event_volverActionPerformed
 
     private void despuesDeAceptar() {
         this.codigo.setText("");

@@ -17,6 +17,7 @@ public class Clientes extends javax.swing.JFrame {
      */
     public Clientes() {
         initComponents();
+//        desactivar();
     }
 
     /**
@@ -164,6 +165,11 @@ public class Clientes extends javax.swing.JFrame {
         btnCancelar.setText("Cancelar");
         btnCancelar.setMaximumSize(new java.awt.Dimension(81, 25));
         btnCancelar.setMinimumSize(new java.awt.Dimension(81, 25));
+        btnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCancelarActionPerformed(evt);
+            }
+        });
 
         btnSalir.setFont(new java.awt.Font("Segoe UI Historic", 0, 14)); // NOI18N
         btnSalir.setText("Salir");
@@ -178,16 +184,36 @@ public class Clientes extends javax.swing.JFrame {
         mantenimiento.setText("Mantenimiento");
 
         altas.setText("Altas");
+        altas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                altasActionPerformed(evt);
+            }
+        });
         mantenimiento.add(altas);
 
         bajas.setText("Bajas");
+        bajas.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                bajasActionPerformed(evt);
+            }
+        });
         mantenimiento.add(bajas);
 
         modificaciones.setText("Modificaciones");
+        modificaciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                modificacionesActionPerformed(evt);
+            }
+        });
         mantenimiento.add(modificaciones);
         mantenimiento.add(jSeparator1);
 
         volver.setText("Volver");
+        volver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                volverActionPerformed(evt);
+            }
+        });
         mantenimiento.add(volver);
 
         menu.add(mantenimiento);
@@ -199,12 +225,27 @@ public class Clientes extends javax.swing.JFrame {
         listado.setText("Listado");
 
         graficos.setText("Graficos");
+        graficos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                graficosActionPerformed(evt);
+            }
+        });
         listado.add(graficos);
 
         entreCodigo.setText("Entre codigos");
+        entreCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                entreCodigoActionPerformed(evt);
+            }
+        });
         listado.add(entreCodigo);
 
         porCodigo.setText("Por Codigo");
+        porCodigo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                porCodigoActionPerformed(evt);
+            }
+        });
         listado.add(porCodigo);
 
         PC.add(listado);
@@ -362,7 +403,7 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_codigoActionPerformed
 
     private void letraNIFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_letraNIFActionPerformed
-        // TODO add your handling code here:
+
 
     }//GEN-LAST:event_letraNIFActionPerformed
 
@@ -414,11 +455,64 @@ public class Clientes extends javax.swing.JFrame {
     }//GEN-LAST:event_btnAceptarActionPerformed
 
     private void btnSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSalirActionPerformed
-        // TODO add your handling code here:
-        dispose();
+        desactivar();
     }//GEN-LAST:event_btnSalirActionPerformed
 
-    private void despuesDeAceptar() {
+    private void volverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_volverActionPerformed
+        new MenuGestionAlmacen().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_volverActionPerformed
+
+    private void altasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_altasActionPerformed
+        activar();
+    }//GEN-LAST:event_altasActionPerformed
+
+    private void btnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCancelarActionPerformed
+        despuesDeAceptar();
+    }//GEN-LAST:event_btnCancelarActionPerformed
+
+    private void entreCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_entreCodigoActionPerformed
+        new EntreCodigos().setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_entreCodigoActionPerformed
+
+    private void bajasActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bajasActionPerformed
+        activar();
+    }//GEN-LAST:event_bajasActionPerformed
+
+    private void modificacionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_modificacionesActionPerformed
+        activar();
+    }//GEN-LAST:event_modificacionesActionPerformed
+
+    private void graficosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_graficosActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_graficosActionPerformed
+
+    private void porCodigoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_porCodigoActionPerformed
+        activar();
+    }//GEN-LAST:event_porCodigoActionPerformed
+
+    public void altas() {
+        try {
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void bajas() {
+
+    }
+
+    public void modificaciones() {
+
+    }
+
+    public void consultaPorCodigo() {
+
+    }
+
+    public void despuesDeAceptar() {
         this.codigo.setText("");
         this.NIF.setText("");
         this.nombre.setText("");
@@ -432,6 +526,41 @@ public class Clientes extends javax.swing.JFrame {
         this.mail.setText("");
         this.totalVentas.setText("");
         this.codigo.grabFocus();
+    }
+
+    public void desactivar() {
+        this.codigo.setEnabled(true);
+        this.NIF.setEnabled(false);
+        this.letraNIF.setEnabled(false);
+        this.nombre.setEnabled(false);
+        this.apellidos.setEnabled(false);
+        this.domicilio.setEnabled(false);
+        this.CP.setEnabled(false);
+        this.localidad.setEnabled(false);
+        this.telefono.setEnabled(false);
+        this.movil.setEnabled(false);
+        this.fax.setEnabled(false);
+        this.mail.setEnabled(false);
+        this.totalVentas.setEnabled(false);
+        this.codigo.setEnabled(false);
+        this.btnAceptar.setEnabled(false);
+        this.btnCancelar.setEnabled(false);
+        this.btnSalir.setEnabled(false);
+    }
+
+    private void activar() {
+        this.NIF.setEnabled(true);
+        this.letraNIF.setText("J");
+        this.nombre.setEnabled(true);
+        this.apellidos.setEnabled(true);
+        this.domicilio.setEnabled(true);
+        this.CP.setEnabled(true);
+        this.localidad.setEnabled(true);
+        this.telefono.setEnabled(true);
+        this.movil.setEnabled(true);
+        this.fax.setEnabled(true);
+        this.mail.setEnabled(true);
+        this.totalVentas.setEnabled(true);
     }
 
     /**
